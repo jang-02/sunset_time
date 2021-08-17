@@ -6,6 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:intl/intl.dart';
+import 'package:sunset_time/leftTime.dart';
 import 'package:sunset_time/src/model/sunsetTime.dart';
 import 'package:xml/xml.dart';
 
@@ -47,6 +49,8 @@ void main() {
 </response>''';
 
   test('노을시간', () {
+    final dateStr = DateFormat('yyyyMMdd').format(DateTime.now());
+    // DateTime tempDate = new DateFormat("yyyyMMdd").parse("20210808");
     final document = XmlDocument.parse(bookshelfXml);
     final items = document.findAllElements('item');
     var sunsetTime = <SunSetTimeModel>[];
@@ -54,6 +58,8 @@ void main() {
       sunsetTime.add(SunSetTimeModel.fromXml(node));
     });
     print(sunsetTime.length);
+
+    // print(tempDate);
     sunsetTime.forEach((sstalarm) {
       print('${sstalarm.locdate} : ${sstalarm.sunset}');
     });

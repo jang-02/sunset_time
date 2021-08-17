@@ -8,6 +8,7 @@ import 'package:http/http.dart';
 
 class SunsetTimeRepository {
   final dateStr = DateFormat('yyyyMMdd').format(DateTime.now());
+  // DateTime tempDate = new DateFormat("yyyyMMdd").parse("20210808");
   late var _dio;
 
   Future<String> getLocation() async {
@@ -49,7 +50,8 @@ class SunsetTimeRepository {
     String lati = locList.split(" ")[1];
     print(long);
     print(lati);
-    print(locList);
+    // print(locList);
+    // print(tempDate);
     var response = await get(Uri.parse(
         'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getLCRiseSetInfo?ServiceKey=cR1YY2ji2HzxD35o6BnH7GgH46ViNYaXmUFWJ%2FKKXc%2BMYcZNA51AWWyKOPorXp8pHJ6gBLiaXzJ809NDVwgNSg%3D%3D&locdate=${dateStr}&longitude=${lati}&latitude=${long}&dnYn=Y'));
     print(response.body);

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:sunset_time/src/app.dart';
 import 'package:sunset_time/src/controller/sunsetTime_controller.dart';
 
+import 'leftTime.dart';
+
 void main() {
   runApp(MyApp());
 }
